@@ -3,14 +3,17 @@ import logging
 from datetime import datetime
 import ast
 
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
+
 # Global variable
 stock_data = {}
+
 
 def add_item(item="default", qty=0, logs=None):
     """
@@ -21,7 +24,11 @@ def add_item(item="default", qty=0, logs=None):
         logs = []
 
     if not isinstance(item, str) or not isinstance(qty, (int, float)):
-        logging.warning("Invalid input types for add_item: item=%s, qty=%s", item, qty)
+        logging.warning(
+            "Invalid input types for add_item: item=%s, qty=%s",
+            item,
+            qty
+        )
         return False
 
     stock_data[item] = stock_data.get(item, 0) + qty
@@ -36,7 +43,11 @@ def remove_item(item, qty):
     Returns True if removed successfully, False otherwise.
     """
     if not isinstance(item, str) or not isinstance(qty, (int, float)):
-        logging.warning("Invalid input types for remove_item: item=%s, qty=%s", item, qty)
+        logging.warning(
+            "Invalid input types for remove_item: item=%s, qty=%s",
+            item,
+            qty
+        )
         return False
 
     try:
